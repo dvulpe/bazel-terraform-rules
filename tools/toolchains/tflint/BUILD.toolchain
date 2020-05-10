@@ -1,0 +1,13 @@
+load("@tf_modules//tools/toolchains/tflint:toolchain.bzl", "declare_tflint_toolchain")
+
+package(default_visibility = ["//visibility:public"])
+
+declare_tflint_toolchain(
+    version = "{version}",
+)
+
+filegroup(
+    name = "{name}",
+    srcs = ["tflint/tflint"],
+    visibility = ["//visibility:public"]
+)

@@ -1,0 +1,13 @@
+load("@tf_modules//tools/toolchains/terraform:toolchain.bzl", "declare_terraform_toolchain")
+
+package(default_visibility = ["//visibility:public"])
+
+declare_terraform_toolchain(
+    version = "{version}",
+)
+
+filegroup(
+    name = "{name}",
+    srcs = ["terraform/terraform"],
+    visibility = ["//visibility:public"]
+)

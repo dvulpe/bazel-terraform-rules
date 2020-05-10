@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_test")
+
+go_test(
+    name = "go_default_test",
+    srcs = ["constants_test.go"],
+    data = [
+        "//examples/constants",
+        "//modules/constants",
+        "//modules/consumer",
+        "@terraform_toolchain//:terraform_executable",
+    ],
+    tags = ["no-sandbox"],
+    deps = [
+        "//test/utils:go_default_library",
+        "@com_github_gruntwork_io_terratest//modules/terraform:go_default_library",
+    ],
+)
