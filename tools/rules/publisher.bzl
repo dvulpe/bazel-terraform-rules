@@ -1,10 +1,8 @@
 load("@tf_modules//tools/rules:module.bzl", "TerraformModuleInfo")
 
 def _impl(ctx):
-    files = depset(
-        direct = [f for f in ctx.attr.module[TerraformModuleInfo].srcs],
-        transitive = [ctx.attr.module[TerraformModuleInfo].deps],
-    ).to_list()
+    module = ctx.attr.module[TerraformModuleInfo]
+    files = module.srcs + module.deps.to_list()
 
     manifest = ctx.actions.declare_file("manifest")
     ctx.actions.write(
