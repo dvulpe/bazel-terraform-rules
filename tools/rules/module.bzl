@@ -1,5 +1,5 @@
 TerraformModuleInfo = provider(
-    doc = "Contains information about a Go library",
+    doc = "Contains information about a Terraform module",
     fields = ["srcs", "deps", "module_path"],
 )
 
