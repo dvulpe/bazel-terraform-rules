@@ -1,5 +1,7 @@
 # Terraform modules - a Bazel approach
 
+![CI](https://github.com/dvulpe/bazel-terraform/workflows/CI/badge.svg?branch=master)
+
 This repository is the result of a short experiment meant to improve the engineering experience when working with Terraform.
 
 ### Why?
