@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup bazel
-      uses: jwlawson/actions-setup-bazel@v1.0
+      uses: jwlawson/actions-setup-bazel@v1.2
       with:
         bazel-version: '3.2.0'
         github-api-token: ${{ secrets.GITHUB_TOKEN }}
