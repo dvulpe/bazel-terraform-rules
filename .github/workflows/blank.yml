@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup bazel
+      uses: jwlawson/actions-setup-bazel@v1.0
+      with:
+        bazel-version: '3.2.0'
+        github-api-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Checkout
+      uses: actions/checkout@v2.2.0
+    - name: Run tests
+      run: bazel test //...
