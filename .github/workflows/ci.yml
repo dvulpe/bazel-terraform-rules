@@ -34,4 +34,4 @@ jobs:
           echo "${{ secrets.BUILDBUDDY_KEY_PEM }}">buildbuddy-key.pem
           sha256sum buildbuddy-key.pem
       - name: Run tests
-        run: bazel test --repository_cache=/github/home/.bazel_cache //... --config=remote
+        run: bazel test //... --config=ci
