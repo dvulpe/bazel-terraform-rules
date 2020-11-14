@@ -9,7 +9,7 @@ go_test(
         "//modules/consumer",
         "@terraform_toolchain//:terraform_executable",
     ],
-    tags = ["no-sandbox"],
+    tags = ["no-sandbox","block-network"],
     deps = [
         "//test/utils:go_default_library",
         "@com_github_gruntwork_io_terratest//modules/terraform:go_default_library",

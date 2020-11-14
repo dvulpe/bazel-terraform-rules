@@ -26,3 +26,8 @@ build:remote --experimental_inmemory_dotd_files
 build:ci --config=remote
 build:ci --build_metadata=VISIBILITY=PUBLIC
 build:ci --repository_cache=/github/home/.bazel_cache
+build:ci --remote_upload_local_results
+
+build:docker --config=remote
+build:docker --build_metadata=VISIBILITY=PUBLIC
+build:docker --repository_cache=/home/dan/.bazel/cache
