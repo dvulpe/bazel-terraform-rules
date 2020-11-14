@@ -21,4 +21,5 @@ func TestConstants(t *testing.T) {
 	if expected != actual {
 		t.Errorf("Expected %v, got %v", expected, actual)
 	}
+	t.Error("expected error during test")
 }
