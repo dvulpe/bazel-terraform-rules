@@ -15,13 +15,13 @@ var (
 )
 
 func init() {
-	flag.StringVar(&TerraformPath, "terraform", "", "path to tflint")
+	flag.StringVar(&TerraformPath, "terraform", "", "path to terraform")
 	flag.StringVar(&Path, "path", "", "path to terraform code")
 }
 
 func main() {
 	flag.Parse()
-	fmt.Println("Terraform fmt check\n")
+	fmt.Println("Terraform fmt check")
 	wd, err := os.Getwd()
 	if err != nil {
 		log.Fatalf("could nnot read directory: %v", err)
