@@ -10,23 +10,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-      image: l.gcr.io/google/bazel:3.5.0
+      image: quay.io/dvulpe/docker-bazelisk:v1.7.4
     steps:
-      - name: install bazelisk
-        run: |
-          curl -fsSL -o /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/latest/download/bazelisk-linux-amd64
-          chmod +x /usr/local/bin/bazel
-          which bazel
       - name: Checkout
         uses: actions/checkout@v2.2.0
       - name: bazel cache
         uses: actions/cache@v2
         with:
           path: /github/home/.bazel_cache
-          key: ${{ github.ref }}
+          key: ${{ runner.os }}-${{ hashFiles('WORKSPACE') }}
           restore-keys: |
-            ${{ github.ref }}
-            refs/heads/master
+            ${{ runner.os }}-${{ hashFiles('WORKSPACE') }}
       - name: Buildbuddy
         run: |
           echo "${{ secrets.BUILDBUDDY_CERT_PEM }}">buildbuddy-cert.pem
