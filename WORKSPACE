@@ -28,6 +28,13 @@ go_register_toolchains()
 
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 
+go_repository(
+    name = "com_github_bazelbuild_rules_go",
+    importpath = "github.com/bazelbuild/rules_go",
+    sum = "h1:WQ4iSdQ423T9prTfDgXp0S6f/ig9H0N/bin/SvDZFJg=",
+    version = "v0.24.7",
+)
+
 gazelle_dependencies()
 
 http_archive(

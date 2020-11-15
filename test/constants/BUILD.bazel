@@ -1,7 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_test")
 
 go_test(
-    name = "go_default_test",
+    name = "constants_test",
     srcs = ["constants_test.go"],
     data = [
         "//examples/constants",
@@ -9,9 +9,11 @@ go_test(
         "//modules/consumer",
         "@terraform_toolchain//:terraform_executable",
     ],
-    tags = ["no-sandbox","block-network"],
+    tags = [
+        "no-sandbox",
+    ],
     deps = [
-        "//test/utils:go_default_library",
-        "@com_github_gruntwork_io_terratest//modules/terraform:go_default_library",
+        "//test/utils",
+        "@com_github_gruntwork_io_terratest//modules/terraform",
     ],
 )

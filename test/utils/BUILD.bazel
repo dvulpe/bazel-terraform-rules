@@ -1,11 +1,12 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
 go_library(
-    name = "go_default_library",
+    name = "utils",
     srcs = ["terraform_finder.go"],
     importpath = "tfmodules/test/utils",
     visibility = ["//visibility:public"],
     deps = [
-        "@com_github_mitchellh_go_testing_interface//:go_default_library",
+        "@com_github_mitchellh_go_testing_interface//:go-testing-interface",
+        "@io_bazel_rules_go//go/tools/bazel:go_default_library",
     ],
 )
