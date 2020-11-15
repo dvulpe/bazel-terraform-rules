@@ -1838,10 +1838,26 @@ http_archive(
     urls = ["https://github.com/buildbuddy-io/buildbuddy-toolchain/archive/52aa5d2cc6c9ba7ee4063de35987be7d1b75f8e2.tar.gz"],
 )
 
-load("@io_buildbuddy_buildbuddy_toolchain//:deps.bzl", "buildbuddy_deps")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-buildbuddy_deps()
+http_archive(
+    name = "bazel_toolchains",
+    sha256 = "8e0633dfb59f704594f19ae996a35650747adc621ada5e8b9fb588f808c89cb0",
+    strip_prefix = "bazel-toolchains-3.7.0",
+    urls = [
+        "https://github.com/bazelbuild/bazel-toolchains/releases/download/3.7.0/bazel-toolchains-3.7.0.tar.gz",
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-toolchains/releases/download/3.7.0/bazel-toolchains-3.7.0.tar.gz",
+    ],
+)
 
-load("@io_buildbuddy_buildbuddy_toolchain//:rules.bzl", "buildbuddy")
+load("@bazel_toolchains//rules:rbe_repo.bzl", "rbe_autoconfig")
 
-buildbuddy(name = "buildbuddy_toolchain")
+# Creates a default toolchain config for RBE.
+# Use this as is if you are using the rbe_ubuntu16_04 container,
+# otherwise refer to RBE docs.
+rbe_autoconfig(name = "rbe_default",
+   registry = "marketplace.gcr.io",
+   repository = "google/rbe-ubuntu16-04",
+   digest = "sha256:b516a2d69537cb40a7c6a7d92d0008abb29fba8725243772bdaf2c83f1be2272",
+)
+
