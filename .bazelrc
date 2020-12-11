@@ -18,6 +18,8 @@ build:remote --host_javabase=@buildbuddy_toolchain//:javabase_jdk8
 build:remote --java_toolchain=@buildbuddy_toolchain//:toolchain_jdk8
 build:remote --host_java_toolchain=@buildbuddy_toolchain//:toolchain_jdk8
 
+build:remote --jobs=100
+
 build:remote --experimental_remote_download_outputs=minimal
 build:remote --experimental_inmemory_jdeps_files
 build:remote --experimental_inmemory_dotd_files
