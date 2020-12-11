@@ -22,6 +22,10 @@ build:remote --experimental_remote_download_outputs=minimal
 build:remote --experimental_inmemory_jdeps_files
 build:remote --experimental_inmemory_dotd_files
 
+build:teamcity --config=remote
+build:teamcity --build_metadata=VISIBILITY=PUBLIC
+build:teamcity --remote_upload_local_results
+
 build:ci --config=remote
 build:ci --build_metadata=VISIBILITY=PUBLIC
 build:ci --repository_cache=/github/home/.bazel_cache
