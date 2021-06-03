@@ -21,11 +21,5 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('WORKSPACE') }}
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('WORKSPACE') }}
-      - name: Buildbuddy
-        run: |
-          echo "${{ secrets.BUILDBUDDY_CERT_PEM }}">buildbuddy-cert.pem
-          sha256sum buildbuddy-cert.pem
-          echo "${{ secrets.BUILDBUDDY_KEY_PEM }}">buildbuddy-key.pem
-          sha256sum buildbuddy-key.pem
       - name: Run tests
         run: bazel test //... --config=ci
